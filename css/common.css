@@ -1,0 +1,106 @@
+.birthday-title {
+    color: rgb(19, 24, 1); /* 设置标题颜色为红色 */
+    font-family: Arial, sans-serif; /* 设置字体为 Arial 或 sans-serif */
+    text-align: center; /* 设置文字居中 */
+    /* 其他标题样式 */
+}
+/* p{
+    background-color: rgb(113, 121, 119);
+    color: rgb(9, 9, 9);
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-language-override: normal;
+} */
+
+a{
+    background-color: chartreuse;
+    color: rgb(51, 4, 25);
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-language-override: normal;
+}
+
+ /* 样式可以根据需要自行修改 */
+ .content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.modal-content {
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+#canvas {
+    border: 1px solid #000;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+}
+
+body {
+    writing-mode: horizontal-tb; /* 设置整个页面的文字纵向从右到左显示 */
+
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    color: blueviolet;
+    line-height: normal;
+    background-color: aliceblue;
+    position:static;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    
+}
+
+#container span {
+    opacity: 0;
+    transition: opacity 0.5s;
+    writing-mode: vertical-rl; /* 设置文字横向从上到下显示 */
+}
+
+/* 为视频添加样式 */
+.custom-video {
+    border: 1px solid #ccc; /* 例子：为视频添加边框 */
+    border-radius: 5px; /* 例子：为视频添加圆角 */
+    /* 其他视频样式 */
+}
+
+/* 为关闭按钮添加样式 */
+.custom-button {
+    background-color: rgb(92, 88, 88); /* 例子：设置按钮背景颜色为红色 */
+    color: #fff; /* 例子：设置按钮文本颜色为白色 */
+    padding: 8px 16px; /* 例子：设置按钮内边距 */
+    border: none; /* 例子：移除按钮边框 */
+    /* 其他按钮样式 */
+}

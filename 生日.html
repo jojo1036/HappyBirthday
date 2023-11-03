@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Surprise</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+
+</head>
+
+<body>
+    <script src="js/lunarcalendar.js"></script>
+
+    <div class="content">
+        <!-- 步骤一：欢迎页面 -->
+        <h1 class="birthday-title">Happy Birthday！</h1>
+
+        <div id="birthdayWish"></div>
+
+    </div>
+
+    <p>
+        今天是<span id="todayDate"></span>
+        <span id="demo"></span><br>
+        农历<span id="lunarDate"></span><br>
+        你的生日 <br>
+        这是想对你说的话！
+    </p>
+
+    
+    
+    <div id ="container" ></div>
+
+    <button id="openButton">送你的花花！</button>
+    <button onclick="playBirthdayVideo()">戳我！</button>
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <canvas id="c" width="1000" height="1000"></canvas>
+            <button id="closeButton">关闭</button>
+            <!-- <canvas id="canvas"></canvas> -->
+        </div>
+    </div>
+
+    <div id="videoSection" style="display: none;">
+        <video id="birthdayVideo" class="custom-video" width="640" height="360" loop>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="closeButton1" class="custom-button">关闭</button>
+    </div>
+    
+
+    <!-- 更多步骤可以在下方继续添加 -->
+
+    <script src="js/rose.js"></script>
+
+    <script>
+        // 播放视频的X按钮
+        closeButton1.addEventListener('click', () => {
+            const videoSection = document.getElementById('videoSection');
+            const birthdayVideo = document.getElementById('birthdayVideo');
+
+            // 暂停视频播放
+            birthdayVideo.pause();
+
+            // 隐藏视频部分
+            videoSection.style.display = 'none';
+        });
+
+        // 获取今天日期
+        var today = new Date();
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        var formattedDate = today.toLocaleDateString('zh-CN', options);
+        document.getElementById("todayDate").textContent = formattedDate;
+
+        // 获取今天星期几
+        var date = "星期" + "天一二三四五六".charAt(new Date().getDay());
+        document.getElementById("demo").innerHTML = date;
+
+        // 转换今天对应的农历日期
+        var lunarDate = calendar.solar2lunar(today.year, today.month, today.day);
+        console.log(lunarDate)
+        document.getElementById("lunarDate").textContent = lunarDate.lYear + "年" + lunarDate.lMonth + "月" + lunarDate.lDay;
+
+        
+
+        // 用container的形式来动态播放文字
+        const data = ['亲爱的君君', '我们经历了许多，有喜悦也有磨难。我们一起笑过、哭过，彼此分享着生活的酸甜苦辣。在这段友谊里，我们曾因误会而闹过矛盾，也曾被嫉妒与不解所困扰，但更多的是包容和理解。在这个特殊的日子里，我想对你说声生日快乐！感谢你在我生命中的存在，无论我们曾有过怎样的分歧，我们都一起度过了许多美好的时刻。我们彼此见证了彼此的成长，相互支持和鼓励。愿我们的友谊继续坚固，愿我们从过去的经历中学到更多，懂得更多的珍惜和理解。愿我们未来的日子里，彼此相互勉励，共同创造更多难忘的回忆。','生日快乐，亲爱的朋友！愿我们的友谊越发坚定，与岁月一同延续。','衷心的祝福，' ,'Jojo']
+        const arr = [];
+        const container = document.getElementById('container');
+
+        for (const item of data) {
+            const p = document.createElement('p');
+            for (let i = 0; i < item.length; i++) {
+                let span = document.createElement('span');
+                span.innerHTML = item[i];
+                p.append(span);
+                arr.push(span);
+            }
+            container.append(p);
+        }
+
+        setTimeout(() => {
+            arr.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+                item.style.opacity = 1;
+            });
+        }, 1);
+        
+        // 步骤二：播放视频
+        function playBirthdayVideo() {
+            document.getElementById("videoSection").style.display = "block";
+            document.getElementById("birthdayVideo").play();
+        }
+    
+
+        // 通过调用rose.js里的p()来动态展示玫瑰花
+        const openButton = document.getElementById('openButton');
+        const modal = document.getElementById('modal');
+        const closeButton = document.getElementById('closeButton');
+
+        openButton.addEventListener('click', () => {
+            modal.style.display = 'block';
+            p();
+
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+      
+
+
+    </script>
+
+</body>
+
+</html>
